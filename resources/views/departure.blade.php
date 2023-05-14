@@ -43,13 +43,7 @@
                         </div>
             </div>
             <div>
-                @foreach ($voli['departure'] as $flights) 
-                <ul> 
-                    <li>
-                          <a href="">   {{$flights['city']}}
-                    </li>
-                </ul>
-                @endforeach
+               
             </div>
 
         </header>

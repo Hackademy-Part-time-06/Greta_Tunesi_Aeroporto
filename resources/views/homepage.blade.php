@@ -36,22 +36,69 @@
         <!-- Header-->
         <header class="py-5 bg-image">
             <div class="container px-5">
-                        <div class="text-center text-xl-start">
-                            <h1 class="display-5 fw-bolder text-white mb-2">
-                            Fly with Bugliano city
-                            </h1>
-                        </div>
+                <div class="text-center text-xl-start">
+                    <h1 class="display-5 fw-bolder text-white mb-2">
+                        Fly with Bugliano city
+                    </h1>
+                </div>
+            </div>
+            <!-- tabella-->
+            <div class="container p-3 mt-5 row">
+                <div class="col-6">
+                <table class="table table-dark table-hover"> 
+                    <h1 class="bg-dark bg-gradient text-light p-3"> Partenze </h1>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID Volo</th>
+                            <th scope="col">Compagnia</th>
+                            <th scope="col">Città</th>
+                            <th scope="col">Orario</th>
+                            <th colspan="2" scope="col">Gate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($voli['departure'] as $flight)
+                            <tr>
+                                <td scope="row">{{ $flight['id'] }}</td>
+                                <td scope="row">{{ $flight['company'] }}</td>
+                                <td scope="row">{{ $flight['city'] }}</td>
+                                <td scope="row">{{ $flight['time'] }}</td>
+                                <td scope="row">{{ $flight['gate'] }}</td>
+                                <td><i class="bi bi-info-circle-fill"></i></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+                <div class="col-6">
+                <table class="table table-dark table-hover">
+                    <h1 class="bg-dark bg-gradient text-light p-3"> Arrivi </h1>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID Volo</th>
+                            <th scope="col">Compagnia</th>
+                            <th scope="col">Città</th>
+                            <th scope="col">Orario</th>
+                            <th colspan="2" scope="col">Gate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($voli['arrival'] as $flight)
+                            <tr>
+                                <td scope="row">{{ $flight['id'] }}</td>
+                                <td scope="row">{{ $flight['company'] }}</td>
+                                <td scope="row">{{ $flight['city'] }}</td>
+                                <td scope="row">{{ $flight['time'] }}</td>
+                                <td scope="row">{{ $flight['gate'] }}</td>
+                                <td><i class="bi bi-info-circle-fill"></i></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
             <div>
-                @foreach ($voli['departure'] as $flights) 
-                <ul> 
-                    <li>
-                          <a href="departure/{{$flights['city']}}"> {{$flights['city']}}
-                    </li>
-                </ul>
-                @endforeach
-            </div>
 
+            <!-- tabella-->
         </header>
 
     </main>
